@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:lottie/lottie.dart';
 import 'package:switch_theme_app/services/theme_service.dart';
 import 'package:switch_theme_app/views/colors_view.dart';
+import 'package:switch_theme_app/views/episode_view.dart';
 import 'package:switch_theme_app/views/http.view.dart';
 import 'package:switch_theme_app/views/inputs_view.dart';
 
@@ -24,25 +25,20 @@ class HomeView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
-            const Text(
-              'Switch Theme',
-              style: TextStyle(fontSize: 22),
-            ),
+            const Text('Switch Theme', style: TextStyle(fontSize: 22)),
 
             // Animación Lottie local
             /*Lottie.asset(
               'assets/Loading Lottie animation.json',
               height: 200,
             ),*/
-
             const SizedBox(height: 20),
 
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => ColorsView()),
-                );
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => ColorsView()));
               },
               child: const Text('Go to colors view'),
             ),
@@ -51,26 +47,38 @@ class HomeView extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => InputsView()),
-                );
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => InputsView()));
               },
               child: const Text('Registro de Avión'),
             ),
             const SizedBox(height: 10),
+
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => HttpView()),
-                );
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => HttpView()));
               },
               child: const Text('Vista HTTP - The Simpsons API'),
             ),
 
             const SizedBox(height: 20),
 
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const EpisodeView()),
+                );
+              },
+              child: const Text('Ver Episodio'),
+            ),
+            const SizedBox(height: 20),
+
             // Animación Lottie desde internet
-           /* Lottie.network(
+            /* Lottie.network(
               "https://lottie.host/aac96b04-0106-4659-aa32-8d90f34518cb/STTwGBKb5s.json",
               height: 150,
             ),*/
@@ -87,9 +95,7 @@ class HomeView extends StatelessWidget {
           }
         },
         tooltip: 'Switch theme',
-        child: Icon(
-          themeStatus ? Icons.sunny : Icons.mode_night_outlined,
-        ),
+        child: Icon(themeStatus ? Icons.sunny : Icons.mode_night_outlined),
       ),
     );
   }
