@@ -1,7 +1,8 @@
-// lib/models/episode_model.dart
+
 
 import 'dart:convert';
 
+// helper
 EpisodeModel episodeModelFromJson(String str) =>
     EpisodeModel.fromJson(json.decode(str));
 

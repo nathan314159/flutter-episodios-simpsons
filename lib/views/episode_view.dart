@@ -1,4 +1,4 @@
-// lib/views/episode_view.dart
+
 
 import 'dart:async';
 import 'package:flutter/material.dart';
@@ -15,7 +15,7 @@ class EpisodeView extends StatefulWidget {
 class _EpisodeViewState extends State<EpisodeView> {
   EpisodeModel? episode;
   bool loading = true;
-  final int episodeId = 1; // Puedes cambiar al episodio que quieras
+  final int episodeId = 1;
 
   Future<void> fetchEpisode(int id) async {
     try {
@@ -24,7 +24,7 @@ class _EpisodeViewState extends State<EpisodeView> {
 
       if (response.statusCode == 200) {
         var data = episodeModelFromJson(response.body);
-        if (!mounted) return; // Evita error de setState después de dispose
+        if (!mounted) return; 
         setState(() {
           episode = data;
           loading = false;
